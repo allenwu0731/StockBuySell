@@ -34,18 +34,20 @@ void SellBuy_2(int sp[], int n)
 	int maxProfit=0;
 	int minPrice=999;
 	int diff;
+	int tmpDayBuy;
 
 	for(int i=0; i<n; i++){
 	
 		if(sp[i]<minPrice){
 			minPrice=sp[i];
-			dayBuy=i;
+			tmpDayBuy=i;
 		}	
 	
 		diff=sp[i]-minPrice;
 		if(sp[i]-minPrice>maxProfit){
 			maxProfit=diff;
 			daySell=i;
+			dayBuy=tmpDayBuy;
 		}	
 	}
 	
@@ -55,7 +57,7 @@ void SellBuy_2(int sp[], int n)
 
 int main()
 {
-	int stockPrice[]={2,40,6,8,7,1,9};
+	int stockPrice[]={2,4,6,8,7,1,9};
 	int n=sizeof(stockPrice)/sizeof(int);
 	
 	SellBuy_1(stockPrice, 7); 
